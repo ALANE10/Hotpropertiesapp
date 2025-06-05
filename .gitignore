@@ -16,3 +16,6 @@ final_project/*.tmp
 
 # Ignore compiled Java files
 final_project/*.class
+
+# Ignore JAR files
+final_project/*.jar
