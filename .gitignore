@@ -1,6 +1,18 @@
-.classpath
-.project
-.settings/
-target/
-
+# Ignore build directories and files
 final_project/target/
+final_project/.classpath
+final_project/.project 
+final_project/.settings/
+final_project/target/classes/
+
+# Ignore IDE specific files
+final_project/.idea/
+
+# Ignore log files
+final_project/*.log
+
+# Ignore temporary files
+final_project/*.tmp
+
+# Ignore compiled Java files
+final_project/*.class
