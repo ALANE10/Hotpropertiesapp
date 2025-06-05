@@ -3,7 +3,6 @@ final_project/target/
 final_project/.classpath
 final_project/.project 
 final_project/.settings/
-final_project/target/classes/
 
 # Ignore IDE specific files
 final_project/.idea/
