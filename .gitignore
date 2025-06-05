@@ -1,1 +1,23 @@
-*.class
+# Ignore build directories and files
+final_project/target/
+final_project/.classpath
+final_project/.project 
+final_project/.settings/
+
+# Ignore IDE specific files
+final_project/.idea/
+
+# Ignore log files
+final_project/*.log
+
+# Ignore temporary files
+final_project/*.tmp
+
+# Ignore compiled Java files
+final_project/*.class
+
+# Ignore JAR files
+final_project/*.jar
+
+# Ignore configuration files
+final_project/src/main/resources/application.properties

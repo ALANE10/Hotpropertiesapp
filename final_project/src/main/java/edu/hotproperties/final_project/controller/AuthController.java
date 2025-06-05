@@ -2,11 +2,13 @@ package edu.hotproperties.final_project.controller;
 
 import edu.hotproperties.final_project.entities.Message;
 import edu.hotproperties.final_project.entities.Property;
+import edu.hotproperties.final_project.services.AdminService;
 import edu.hotproperties.final_project.services.AuthService;
 import edu.hotproperties.final_project.services.UserService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Controller;
@@ -22,10 +24,30 @@ import java.util.List;
 public class AuthController {
     private final AuthService authService;
     private final UserService userService;
+    private final AdminService adminService;
 
-    public AuthController( AuthService authService, UserService userService) {
+    public AuthController( AuthService authService, UserService userService, AdminService adminService) {
         this.authService = authService;
         this.userService = userService;
+        this.adminService= adminService;
+    }
+
+    //admin
+    @GetMapping("/users")
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(adminService.getAllUsers());
+    }
+
+    @PostMapping("/create-agent")
+    public ResponseEntity<String> createAgent(@RequestBody User user) {
+        adminService.createAgent(user);
+        return ResponseEntity.ok("Agent created successfully.");
+    }
+
+    @DeleteMapping("/delete-user/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+        adminService.deleteUser(id);
+        return ResponseEntity.ok("User deleted successfully.");
     }
 
     @GetMapping({"/", ""})
