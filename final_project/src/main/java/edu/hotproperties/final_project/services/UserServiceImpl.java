@@ -220,10 +220,10 @@ public class UserServiceImpl implements UserService {
         //update with changes
         property.setTitle(title);
         property.setPrice(price);
-        property.setDescription(location);
         property.setLocation(description);
+        property.setDescription(location);
         property.setSize(size);
-        property.setSize(size);
+
 
         //save changes
         propertyRepository.save(property);
@@ -397,8 +397,8 @@ public class UserServiceImpl implements UserService {
     public void validProperty(Property property) {
         validTitle(property.getTitle());
         validPrice(property.getPrice());
-        validDescription(property.getDescription());
         validLocation(property.getLocation());
+        validDescription(property.getDescription());
         validSize(property.getSize());
     }
 
